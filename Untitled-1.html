@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404-NOT FOUND | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+    }
+
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      color: #00ff00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    .matrix-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    header, section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .hero {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #00ff00;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 40px;
+      color: #00ff00;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    .teams, .project-gallery {
+      margin-top: 40px;
+    }
+
+    .team-member, .project-item {
+      background: #1a1a1a;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-left: 4px solid #00ff00;
+      transition: transform 0.3s ease;
+    }
+
+    .team-member:hover, .project-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .buttons {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .buttons button {
+      background: #00ff00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .buttons button:hover {
+      background: #00cc00;
+    }
+  </style>
+</head>
+<body>
+  <div class="loader" id="loader">
+    <canvas class="matrix-canvas" id="matrixCanvas"></canvas>
+    <h1>404-NOT FOUND...</h1>
+  </div>
+
+  <div id="mainContent" class="hidden">
+    <header class="hero">
+      <h1>404 - NOT FOUND</h1>
+      <p>A team set on solving problems and making the bag</p>
+    </header>
+
+    <section class="about">
+      <h2>About us</h2>
+      <p>Our leader Wednesday is the smartest a bit cocky but worthit then our manager and counsellor Prince is the funniest and a great chef. we have other smart people like Edway and Ebenezer for Back end and front End dev respectively. Then our publicity and presentations sectors our seen out by Juju and Wilson and benedict is our Vice leader and team spnser He hold waaaa</p>
+    </section>
+
+    <div class="buttons">
+      <button onclick="document.getElementById('teams').scrollIntoView({ behavior: 'smooth' })">Us</button>
+      <button onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })">Projects</button>
+    </div>
+
+    <section class="teams" id="teams">
+      <h2>Our Team</h2>
+      <div class="team-member">
+        <h3>Wednesday</h3>
+        <p>Lead Developer and Team Captain - Mostly does evrythinng</p>
+      </div>
+      <div class="team-member">
+        <h3>Edway</h3>
+        <p>Front end - supposed to do the front end but hast done anything now looking for girls.</p>
+      </div>
+      <div class="team-member">
+        <h3>Ebenezer</h3>
+        <p>Back end dev - Supposed to help our leader with the back end but also hasnt done anything mostly learning with Avatar and other girls.</p>
+      </div>
+      <div class="team-member">
+        <h3>Prince</h3>
+        <p>Connsellor and Manager - Does his job well and is a reliable and great chef .</p>
+      </div>
+      <div class="team-member">
+        <h3>Juju</h3>
+        <p>Presentations - Does his job well but not well enough but is popularly known aS Ghost or Balt .</p>
+      </div>
+      <div class="team-member">
+        <h3>Wilson</h3>
+        <p>Publicity - Creates our publicity files and manages them mostly spends time playinng efootball.</p>
+      </div>
+      <div class="team-member">
+        <h3>Benedicte</h3>
+        <p>Vice Captain- Our point of contact and our links to lecturers our Daddy. Also seen taking eyes on some females around.</p>
+      </div>
+    </section>
+
+    <section class="projects project-gallery" id="projects">
+      <h2>Projects</h2>
+      <div class="project-item">
+        <h3>Study Sphere</h3>
+        <p>Unfinished.</p>
+      </div>
+      <div class="project-item">
+        <h3>Ubuntu</h3>
+        <p>Trying to get Gob3 money without looking to obviuos</p>
+      </div>
+      <div class="project-item">
+        <h3>Lnugs</h3>
+        <p>Also Gob3 mula but nefficiently made mistakes would be  corected in due time.</p>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>MostlycontactBenedict@gmail.com</p>
+      <p>For more information, please contact us at:233 54 869 7052 who would probably be switched off or on DND so</p>
+      <p>Just call or text (233) 50 251 1346</p>
+    </section>
+  </div>
+
+  <script>
+    // Matrix background animation for loading screen
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = 'アァイィヴエカキクケコサシ404 - NOT FOUNDスセソタチツテトナニヌネノ404 - NOT FOUNND'.split('');
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#0f0';
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.875) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 33);
+
+    // Hide loader
+    setTimeout(() => {
+      document.getElementById('loader').style.display = 'none';
+      document.getElementById('mainContent').classList.remove('hidden');
+    }, 3500);
+  </script>
+</body>
+</html>
